@@ -318,7 +318,7 @@ elif page == "Data Explorer":
                      "num_partners","covid_dummy"])
     with col_r:
         sub = df if tt_filter=="Both" else df[df["trade_type"]==tt_filter]
-        st.dataframe(sub[vcols].tail(48), use_container_width=True, height=260)
+        st.dataframe(sub[vcols].tail(48), width='stretch', height=260)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     fig = go.Figure()
@@ -328,7 +328,7 @@ elif page == "Data Explorer":
                                  mode="lines",name=tt.capitalize(),
                                  line=dict(color=color,width=1.8)))
     fig.update_layout(**PLOTLY_LAYOUT, title="Monthly trade value (USD million)")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     num_cols = df.select_dtypes(include=np.number).columns.tolist()
     feat = st.selectbox("Feature distribution", num_cols,
@@ -337,7 +337,7 @@ elif page == "Data Explorer":
                         color_discrete_map={"import":"#5dcaa5","export":"#ef9f27"},
                         nbins=40, opacity=0.75)
     fig2.update_layout(**PLOTLY_LAYOUT)
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, width='stretch')
 
 # ═══════════════════════════════════════════════════════════════
 # PAGE 3 — PREPROCESSING
@@ -408,13 +408,13 @@ elif page == "Trade Network":
     with col1:
         img = "outputs/plots/trade_network_import.png"
         if os.path.exists(img):
-            st.image(img, caption="Import network — partner → Zimbabwe", use_container_width=True)
+            st.image(img, caption="Import network — partner → Zimbabwe", width='stretch')
         else:
             st.info("Run `python src/trade_graph.py` to generate network plots.")
     with col2:
         img = "outputs/plots/trade_network_export.png"
         if os.path.exists(img):
-            st.image(img, caption="Export network — Zimbabwe → partner", use_container_width=True)
+            st.image(img, caption="Export network — Zimbabwe → partner", width='stretch')
         else:
             st.info("Run `python src/trade_graph.py` to generate network plots.")
 
@@ -443,7 +443,7 @@ elif page == "Trade Network":
                 x=sub["date"], y=sub["graph_pagerank_zw"],
                 name=f"PageRank ({tt})", line=dict(color=color, width=1.8)))
         fig.update_layout(**PLOTLY_LAYOUT, title="Zimbabwe PageRank over time")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("#### Why not a full GNN?")
@@ -478,7 +478,7 @@ elif page == "Results Dashboard":
                     .highlight_min(subset=[c for c in ["MAE","RMSE","MAPE (%)"] if c in display_cols], color="#0f3d30")
                     .highlight_max(subset=[c for c in ["R2"] if c in display_cols], color="#0f3d30")
                     .format({c:"{:.2f}" for c in display_cols}),
-                use_container_width=True)
+                width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     try:
@@ -505,12 +505,12 @@ elif page == "Results Dashboard":
                          f"outputs/plots/{tt}_residuals.png",
                          f"outputs/plots/{tt}_shock_analysis.png"]:
                 if os.path.exists(plot):
-                    st.image(plot, use_container_width=True)
+                    st.image(plot, width='stretch')
 
     bar = "outputs/plots/model_comparison_bars.png"
     if os.path.exists(bar):
         st.markdown("#### All-model metric comparison")
-        st.image(bar, use_container_width=True)
+        st.image(bar, width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.download_button("Download model_comparison.csv",
@@ -546,11 +546,11 @@ elif page == "Ablation Study":
                 sub[["Component layer","Model","RMSE (USD mn)","MAPE (%)","R²","ΔRMSE vs baseline (%)","R² positive"]]
                     .rename(columns={"Component layer":"Layer"})
                     .set_index("Layer"),
-                use_container_width=True)
+                width='stretch')
 
     abl_plot = "outputs/plots/ablation_chart.png"
     if os.path.exists(abl_plot):
-        st.image(abl_plot, use_container_width=True)
+        st.image(abl_plot, width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("#### Sub-period analysis — Objective 4")
@@ -566,11 +566,11 @@ elif page == "Ablation Study":
                 pivot = s.pivot(index="Economic Period", columns="Model",
                                 values="Approx RMSE (USD mn)")
                 st.dataframe(pivot.style.highlight_min(axis=1, color="#0f3d30").format("{:.1f}"),
-                             use_container_width=True)
+                             width='stretch')
 
         sp_plot = "outputs/plots/subperiod_chart.png"
         if os.path.exists(sp_plot):
-            st.image(sp_plot, use_container_width=True)
+            st.image(sp_plot, width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("#### Policy uncertainty proxy")
@@ -604,7 +604,7 @@ elif page == "Interpretability":
         with tab:
             img = f"outputs/shap/{tt}_feature_importance.png"
             if os.path.exists(img):
-                st.image(img, use_container_width=True)
+                st.image(img, width='stretch')
 
             imp_df = load_csv(f"outputs/shap/{tt}_feature_importance.csv")
             if imp_df is not None:
@@ -628,7 +628,7 @@ elif page == "Interpretability":
                     marker_color=[gc(f) for f in top10["feature"]]))
                 fig.update_layout(**PLOTLY_LAYOUT,
                                   title=f"{tt.capitalize()}s — top 10 feature drivers")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("#### Gravity model alignment — Objective 1")
@@ -637,7 +637,7 @@ elif page == "Interpretability":
         for tt in ["Import","Export"]:
             st.markdown(f"**{tt}s**")
             sub = grav[grav["Trade Type"]==tt][["Feature","Gravity model prediction","Feature category"]]
-            st.dataframe(sub.set_index("Feature"), use_container_width=True)
+            st.dataframe(sub.set_index("Feature"), width='stretch')
     else:
         st.info("Run `python src/ablation_study.py` to generate gravity model alignment table.")
 
