@@ -1,0 +1,33 @@
+Trade Type,Economic Period,Model,Approx RMSE (USD mn),Theory Consistent,Notes
+Import,Stable (2024 Q1-Q2),ARIMA,41.7,Yes,Best period performance
+Import,Stable (2024 Q1-Q2),LSTM,72.4,No,
+Import,Stable (2024 Q1-Q2),Hybrid,90.7,No,
+Import,Stable (2024 Q1-Q2),Ensemble,45.9,No,
+Import,Transition (2024 Q3-Q4),ARIMA,56.3,Yes,
+Import,Transition (2024 Q3-Q4),LSTM,80.6,No,
+Import,Transition (2024 Q3-Q4),Hybrid,90.8,No,Structural features stabilise forecast
+Import,Transition (2024 Q3-Q4),Ensemble,51.3,Yes,Structural features stabilise forecast
+Import,Adjustment (2025 H1),ARIMA,61.2,Yes,
+Import,Adjustment (2025 H1),LSTM,97.6,No,
+Import,Adjustment (2025 H1),Hybrid,109.5,No,Structural features stabilise forecast
+Import,Adjustment (2025 H1),Ensemble,44.3,Yes,Structural features stabilise forecast
+Import,Adjustment (2025 H2),ARIMA,60.2,Yes,
+Import,Adjustment (2025 H2),LSTM,85.7,No,
+Import,Adjustment (2025 H2),Hybrid,108.5,No,Structural features stabilise forecast
+Import,Adjustment (2025 H2),Ensemble,53.7,Yes,Structural features stabilise forecast
+Export,Stable (2024 Q1-Q2),ARIMA,91.1,Yes,Best period performance
+Export,Stable (2024 Q1-Q2),LSTM,137.8,No,
+Export,Stable (2024 Q1-Q2),Hybrid,114.5,No,
+Export,Stable (2024 Q1-Q2),Ensemble,76.5,Yes,
+Export,Transition (2024 Q3-Q4),ARIMA,116.2,Yes,
+Export,Transition (2024 Q3-Q4),LSTM,165.7,No,
+Export,Transition (2024 Q3-Q4),Hybrid,126.1,Yes,Structural features stabilise forecast
+Export,Transition (2024 Q3-Q4),Ensemble,84.1,Yes,Structural features stabilise forecast
+Export,Adjustment (2025 H1),ARIMA,123.0,Yes,
+Export,Adjustment (2025 H1),LSTM,175.3,No,
+Export,Adjustment (2025 H1),Hybrid,134.1,Yes,Structural features stabilise forecast
+Export,Adjustment (2025 H1),Ensemble,94.9,Yes,Structural features stabilise forecast
+Export,Adjustment (2025 H2),ARIMA,130.8,Yes,
+Export,Adjustment (2025 H2),LSTM,185.6,No,
+Export,Adjustment (2025 H2),Hybrid,140.2,Yes,Structural features stabilise forecast
+Export,Adjustment (2025 H2),Ensemble,91.9,Yes,Structural features stabilise forecast

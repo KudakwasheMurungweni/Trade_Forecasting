@@ -1,0 +1,9 @@
+Trade Type,Component layer,Model,MAE (USD mn),RMSE (USD mn),MAPE (%),R²,ΔRMSE vs baseline (%),R² positive
+Import,L1: Statistical baseline (ARIMA),ARIMA,35.6,41.6,4.4,0.5532,0.0,Yes
+Import,L2: + Temporal DL (LSTM sequences),LSTM,46.9,60.2,5.88,-0.0785,-44.7,No
+Import,L3: + Cross-modal fusion (macro + structural),Hybrid,63.2,78.0,7.51,-0.8065,-87.3,No
+Import,L4: + Knowledge-constrained ensemble,Ensemble,37.0,42.6,4.49,0.4609,-2.3,Yes
+Export,L1: Statistical baseline (ARIMA),ARIMA,72.8,88.2,12.47,0.2412,0.0,Yes
+Export,L2: + Temporal DL (LSTM sequences),LSTM,97.4,115.4,17.32,-0.4415,-30.8,No
+Export,L3: + Cross-modal fusion (macro + structural),Hybrid,80.8,99.0,14.48,-0.0605,-12.2,No
+Export,L4: + Knowledge-constrained ensemble,Ensemble,58.6,74.6,10.31,0.3975,15.5,Yes

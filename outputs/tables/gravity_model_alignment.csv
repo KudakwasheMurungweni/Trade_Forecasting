@@ -1,0 +1,14 @@
+Trade Type,Feature,Gravity model prediction,Encoded in model,Feature category
+Import,gdp_proxy_bn_usd,positive,Yes,Macroeconomic
+Import,exchange_rate_log,negative,Yes,Macroeconomic
+Import,inflation_log,negative,Yes,Macroeconomic
+Import,commodity_price_index,positive,Yes,Macroeconomic
+Import,regional_trade_share_sadc,positive,Yes,Structural/network
+Import,covid_dummy,negative,Yes,Shock indicator
+Import,drought_indicator,positive,Yes,Shock indicator
+Export,gdp_proxy_bn_usd,positive,Yes,Macroeconomic
+Export,exchange_rate_log,positive,Yes,Macroeconomic
+Export,commodity_price_index,positive,Yes,Macroeconomic
+Export,regional_trade_share_sadc,positive,Yes,Structural/network
+Export,top_partner_share,negative,Yes,Structural/network
+Export,covid_dummy,negative,Yes,Shock indicator

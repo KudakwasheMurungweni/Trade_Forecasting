@@ -1,0 +1,3 @@
+Trade Type,Mean RMSE across models,Std RMSE across models,Model disagreement (CV),Best/worst RMSE ratio,Policy uncertainty level,Implication
+Import,55.6,14.9,0.2677,1.87,Moderate,Moderate disagreement — ensemble recommended for policy decisions
+Export,94.3,14.9,0.1583,1.55,Moderate,Moderate disagreement — ensemble recommended for policy decisions
