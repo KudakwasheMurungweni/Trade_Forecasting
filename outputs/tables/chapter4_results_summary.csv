@@ -1,0 +1,9 @@
+Trade Type,Model,MAE (USD mn),RMSE (USD mn),MAPE (%),R²,vs ARIMA RMSE (%),R² Status,Best for type
+Import,ARIMA,35.6,41.6,4.4,0.5532,0.0,Positive,YES
+Import,LSTM,46.9,60.2,5.88,-0.0785,-44.7,Negative,
+Import,Hybrid,63.2,78.0,7.51,-0.8065,-87.5,Negative,
+Import,Ensemble,37.0,42.6,4.49,0.4609,-2.4,Positive,
+Export,ARIMA,72.8,88.2,12.47,0.2412,0.0,Positive,
+Export,LSTM,97.4,115.4,17.32,-0.4415,-30.8,Negative,
+Export,Hybrid,80.8,99.0,14.48,-0.0605,-12.2,Negative,
+Export,Ensemble,58.6,74.6,10.31,0.3975,15.4,Positive,YES

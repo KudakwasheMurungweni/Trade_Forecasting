@@ -1,0 +1,3 @@
+Trade Type,Best Model,MAE,RMSE,MAPE (%),R2
+Import,ARIMA,35.641,41.627,4.403,0.5532
+Export,Ensemble,58.625,74.588,10.306,0.3975
