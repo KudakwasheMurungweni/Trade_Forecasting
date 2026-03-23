@@ -1,3 +1,9 @@
+"""
+app/streamlit_app.py  — Cloud-safe version
+Loads all results from pre-saved CSVs and PNGs.
+No TensorFlow import at startup. Training disabled on cloud.
+"""
+
 import os, sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
